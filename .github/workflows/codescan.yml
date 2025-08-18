@@ -1,9 +1,9 @@
-name: Example workflow using Snyk
+name: Example workflow using Snyk for Python
 
 on:
   push:
     branches:
-      - main  # Trigger on push to main branch
+      - main
 
 jobs:
   security:
@@ -14,20 +14,22 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Step 2: Set up Node.js (if scanning Node projects)
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      # Step 2: Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
-          node-version: '18'
+          python-version: '3.11'
 
       # Step 3: Install dependencies
       - name: Install dependencies
-        run: npm install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
       # Step 4: Run Snyk scan
       - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/node@master
+        uses: snyk/actions/python@master
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-          command: test  # #Run `snyk test` to check for vulnerabilities
+          command: test
