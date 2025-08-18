@@ -53,7 +53,7 @@ def ping():
     result = os.popen(f'ping -c 1 {host}').read()
     return f"<pre>{result}</pre>"
 
-# Vulnerable route: Hardcoded secret#
+# Vulnerable route: Hardcoded secret##
 @app.route('/secret', methods=['GET'])
 def secret():
     # Hardcoded API key
