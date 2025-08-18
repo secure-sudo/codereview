@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 public class SecureApp {
 
     public static void main(String[] args) {
-        // ✅ Load credentials from environment variables or secure vault
+        // ✅ Load credentials from environment variables or secure vaultt
         String dbUser = System.getenv("DB_USER");
         String dbPass = System.getenv("DB_PASS");
         String dbUrl  = System.getenv("DB_URL"); // e.g., jdbc:mysql://localhost:3306/testdb
