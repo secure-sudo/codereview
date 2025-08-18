@@ -1,9 +1,9 @@
-name: Snyk Source Scan (No requirements.txt)
+name: Snyk Source Scan
 
 on:
   push:
     branches:
-      - main  # Adjust this if your default branch is different
+      - main
 
 jobs:
   security:
@@ -18,10 +18,10 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Run Snyk on Python source code
+      - name: Run Snyk to scan entire repo
         uses: snyk/actions/python@master
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           command: test
-          args: --file=vulnerable_app.py --project-name=python-code-review --severity-threshold=low
+          args: --all-projects --detection-depth=4
