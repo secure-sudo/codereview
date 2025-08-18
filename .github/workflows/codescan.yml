@@ -1,9 +1,9 @@
-name: Snyk Scan for Python App
+name: Snyk Source Scan (No requirements.txt)
 
 on:
   push:
     branches:
-      - main  # or your default branch
+      - main  # Adjust this if your default branch is different
 
 jobs:
   security:
@@ -18,18 +18,10 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install dependencies (if requirements.txt exists)
-        run: |
-          if [ -f requirements.txt ]; then
-            python -m pip install --upgrade pip
-            pip install -r requirements.txt
-          else
-            echo "requirements.txt not found, skipping dependency installation."
-          fi
-
-      - name: Run Snyk to check for vulnerabilities
+      - name: Run Snyk on Python source code
         uses: snyk/actions/python@master
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           command: test
+          args: --file=vulnerable_app.py --project-name=python-code-review --severity-threshold=low
