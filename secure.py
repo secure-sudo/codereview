@@ -1,6 +1,6 @@
 import os
 from flask import Flask, request, jsonify, render_template_string
-import sqlite3  # Example DB
+import sqlite3  # Example DBd
 from markupsafe import escape
 
 app = Flask(__name__)
