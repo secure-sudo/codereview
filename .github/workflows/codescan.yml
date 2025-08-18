@@ -1,16 +1,16 @@
-name: Example workflow using Snyk for Pythonn
+name: Snyk Scan for Python App
 
 on:
   push:
     branches:
-      - main
+      - main  # or your default branch
 
 jobs:
   security:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Set up Python
