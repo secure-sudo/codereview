@@ -7,7 +7,7 @@ public class VulnerableApp {
 
     public static void main(String[] args) {
         try {
-            // Hardcoded database credentials (SAST detectable)
+            // Hardcoded database credentials (SAST detectable)L
             String dbUser = "admin";
             String dbPass = "P@ssw0rd123";
 
