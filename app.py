@@ -21,7 +21,7 @@ configure(app)
 db = SQLAlchemy(app)
 
 
-###########
+############
 # Models #
 ##########
 class User(db.Model):
