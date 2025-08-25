@@ -23,7 +23,7 @@ db = SQLAlchemy(app)
 
 ############
 # Models #
-##########
+###########
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     bio = db.Column(db.Text())
