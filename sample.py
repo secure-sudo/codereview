@@ -12,7 +12,7 @@ def login():
     username = request.args.get("username")
     password = request.args.get("password")
 
-    # 🚨 Vulnerability. #1: SQL Injection
+    # 🚨 Vulnerability., #1: SQL Injection
     query = f"SELECT * FROM users WHERE username='{username}' AND password='{password}'"
     print("Executing query:", query)
 
