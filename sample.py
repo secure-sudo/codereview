@@ -20,7 +20,7 @@ def login():
     cursor = conn.cursor()
     result = cursor.execute(query).fetchone()
 
-    # 🚨 Vulnerability #2: Plaintext Password Check (No Hashing)
+    # 🚨 Vulnerability #2: Plaintext Password Check (No Hashingg)
     if result:
         return f"Welcome, {username}!"
     else:
